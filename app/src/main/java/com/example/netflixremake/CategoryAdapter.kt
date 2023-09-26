@@ -11,10 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.netflixremake.model.Category
 import com.example.netflixremake.model.Movie
 
-class CategoryAdapter(val category: List<Category>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+class CategoryAdapter(val category: List<Category>) :
+    RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
         return CategoryViewHolder(view)
     }
 
@@ -31,12 +33,13 @@ class CategoryAdapter(val category: List<Category>) : RecyclerView.Adapter<Categ
 
     inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(category: Category) {
-            val txt_category:TextView=itemView.findViewById(R.id.txt_category)
-            txt_category.text=category.name
-           val rv_category:RecyclerView=itemView.findViewById(R.id.recycler_category)
-            with(rv_category){
-                layoutManager=LinearLayoutManager(itemView.context,RecyclerView.HORIZONTAL,false)
-                adapter=MovieAdapter(category.movieList)
+            val txt_category: TextView = itemView.findViewById(R.id.txt_category)
+            txt_category.text = category.name
+            val rv_category: RecyclerView = itemView.findViewById(R.id.recycler_category)
+            with(rv_category) {
+                layoutManager =
+                    LinearLayoutManager(itemView.context, RecyclerView.HORIZONTAL, false)
+                adapter = MovieAdapter(category.movieList)
             }
         }
     }
