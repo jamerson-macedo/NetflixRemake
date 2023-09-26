@@ -10,32 +10,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+    //MVC
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val adapter=MainAdapter()
-        val rv:RecyclerView=findViewById(R.id.recycler_main)
-        rv.layoutManager=LinearLayoutManager(this)
-        rv.adapter=adapter
-    }
-    private inner class MainAdapter:RecyclerView.Adapter<MainAdapter.MovieViewHolder>(){
+        val mainadapter = MainAdapter()
+        val rv: RecyclerView = findViewById(R.id.recycler_main)
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-            val view=layoutInflater.inflate(R.layout.movie_item,parent,false)
-            return MovieViewHolder(view)
+        with(rv) {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = mainadapter
         }
-
-        override fun getItemCount(): Int {
-            return 60
-        }
-
-        override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-
-        }
-        private inner class MovieViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-
-        }
-
-
     }
 }
