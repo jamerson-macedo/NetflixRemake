@@ -39,7 +39,7 @@ class CategoryAdapter(val category: List<Category>) :
             with(rv_category) {
                 layoutManager =
                     LinearLayoutManager(itemView.context, RecyclerView.HORIZONTAL, false)
-                adapter = MovieAdapter(category.movieList)
+                adapter = MovieAdapter(category.movieList,R.layout.movie_item)
             }
         }
     }
