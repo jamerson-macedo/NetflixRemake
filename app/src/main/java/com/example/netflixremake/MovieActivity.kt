@@ -23,17 +23,9 @@ class MovieActivity : AppCompatActivity() {
         val txt_cast:TextView=findViewById(R.id.cast_movie)
         val recycler_simila:RecyclerView=findViewById(R.id.recycler_similar)
 
-            val movies = mutableListOf<Movie>()
-            for (i in 0 until 15) {
-                val movie = Movie(R.drawable.movie_1)
-                movies.add(movie)
-        }
-        txt_title.text="o Homem que desafiou o diabo"
-        txt_description.text="o filme fala que fulano e eifknwjefnsekjfnsejkfnsekjfnsjenkf"
-        txt_cast.text="jose, asjindfujm asndausdnasd ansujdnasjdnasjd asndajsndasj ndasjdn"
+        val movies = mutableListOf<Movie>()
         recycler_simila.layoutManager=GridLayoutManager(this,3)
         recycler_simila.adapter=MovieAdapter(movies,R.layout.movie_item_similar)
-
 
 
         val toolbar:Toolbar=findViewById(R.id.movie_toolbar)

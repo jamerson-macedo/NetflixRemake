@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.netflixremake.model.Category
 import com.example.netflixremake.model.Movie
+import com.example.netflixremake.util.InternetTask
 
 class MainActivity : AppCompatActivity() {
     //MVC
@@ -13,15 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val categories = mutableListOf<Category>()
-        for (j in 0 until 10) {
-            val movies = mutableListOf<Movie>()
-            for (i in 0 until 15) {
-                val movie = Movie(R.drawable.movie_1)
-                movies.add(movie)
-            }
-            val category = Category("cat $j", movies)
-            categories.add(category)
-        }
+        InternetTask().execute("https://rickandmortyapi.com/api/character")
+
 
 
         // na lista principal main adapter teremos um recycler horixontal
