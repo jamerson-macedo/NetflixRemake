@@ -25,7 +25,7 @@ class MovieActivity : AppCompatActivity() {
 
         val movies = mutableListOf<Movie>()
         recycler_simila.layoutManager=GridLayoutManager(this,3)
-        recycler_simila.adapter=MovieAdapter(movies,R.layout.movie_item_similar)
+       // recycler_simila.adapter=MovieAdapter(movies,R.layout.movie_item_similar)
 
 
         val toolbar:Toolbar=findViewById(R.id.movie_toolbar)
