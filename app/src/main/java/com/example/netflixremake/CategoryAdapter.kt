@@ -3,9 +3,11 @@ package com.example.netflixremake
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.netflixremake.model.Category
 import com.example.netflixremake.model.ModelCS
 import com.example.netflixremake.model.ModelCSItem
@@ -32,14 +34,14 @@ class CategoryAdapter(val cs: List<ModelCSItem>) :
     }
 
     inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(category: ModelCSItem) {
+        fun bind(csitem: ModelCSItem) {
             val txt_category: TextView = itemView.findViewById(R.id.txt_category)
-            txt_category.text = category.name
+            txt_category.text = csitem.name
             val rv_category: RecyclerView = itemView.findViewById(R.id.recycler_category)
             with(rv_category) {
                 layoutManager =
                     LinearLayoutManager(itemView.context, RecyclerView.HORIZONTAL, false)
-               adapter = MovieAdapter(ModelCS(),R.layout.movie_item)
+                adapter = MovieAdapter(cs, R.layout.movie_item)
             }
         }
     }

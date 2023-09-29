@@ -1,3 +1,3 @@
 package com.example.netflixremake.model
 
-class ModelCS : ArrayList<ModelCSItem>()
+class ModelCS() : ArrayList<ModelCSItem>()

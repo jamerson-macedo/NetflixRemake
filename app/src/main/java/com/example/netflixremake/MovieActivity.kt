@@ -43,4 +43,5 @@ class MovieActivity : AppCompatActivity() {
         val coverimg:ImageView=findViewById(R.id.movie_img)
         coverimg.setImageDrawable(layerDrawable)
     }
+
 }

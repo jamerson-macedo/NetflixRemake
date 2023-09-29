@@ -6,9 +6,9 @@ data class ModelCSItem(
     @SerializedName("contains")
     val contains: List<Contain>,
     @SerializedName("id")
-    val id: String,
+    var id: String,
     @SerializedName("image")
     val image: String,
     @SerializedName("name")
-    val name: String
+    var name: String
 )

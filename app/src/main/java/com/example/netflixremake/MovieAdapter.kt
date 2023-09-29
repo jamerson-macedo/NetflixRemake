@@ -1,6 +1,7 @@
 package com.example.netflixremake
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +35,8 @@ class MovieAdapter(val movie: List<ModelCSItem>, @LayoutRes private val layoutId
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: ModelCSItem) {
            val imagetest: ImageView = itemView.findViewById(R.id.image_movie)
-            Glide.with(itemView).load(movie.image).into(imagetest);
+            Log.i("ingazera",movie.image)
+            Glide.with(itemView.context).load(movie.image).placeholder(R.drawable.placeholder).into(imagetest);
 
         }
     }
