@@ -2,6 +2,11 @@ package com.example.netflixremake.model
 
 import androidx.annotation.DrawableRes
 
-data class Movie(val id:Int,val coverurl:String){
-
-}
+// os que estao com o string e que nao sao obrigados
+data class Movie(
+    val id: Int,
+    val coverUrl: String,
+    val title: String = "",
+    val desc: String = "",
+    val cast: String = ""
+)

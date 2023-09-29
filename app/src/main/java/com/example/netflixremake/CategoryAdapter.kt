@@ -6,40 +6,48 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import co.tiagoaguiar.netflixremake.MovieAdapter
 import com.example.netflixremake.model.Category
 
-class CategoryAdapter(val category: List<Category>) :
-    RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+class CategoryAdapter(private val categories: List<Category>,
+                      private val onItemClickListener: (Int) -> Unit
+
+): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
+        val view =  LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
         return CategoryViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return category.size
-    }
-
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-
-        val category = category[position]
+        val category = categories[position]
         holder.bind(category)
+    }
+
+    override fun getItemCount(): Int {
+        return categories.size
 
     }
 
-    inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(categoria: Category) {
-            val txt_category: TextView = itemView.findViewById(R.id.txt_category)
-            txt_category.text = categoria.name
-            val rv_category: RecyclerView = itemView.findViewById(R.id.recycler_category)
-            with(rv_category) {
-                layoutManager =
-                    LinearLayoutManager(itemView.context, RecyclerView.HORIZONTAL, false)
-                adapter = MovieAdapter(categoria.movieList, R.layout.movie_item)
-            }
+
+    inner class CategoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        fun bind(category: Category) {
+            val tv_tittle: TextView = itemView.findViewById(R.id.tv_title)
+            tv_tittle.text = category.name
+
+
+            val rvCategory: RecyclerView = itemView.findViewById(R.id.rv_category)
+            rvCategory.layoutManager = LinearLayoutManager(itemView.context, RecyclerView.HORIZONTAL , false)
+            rvCategory.adapter = MovieAdapter(category.movieList, R.layout.movie_item, onItemClickListener)
+
         }
+
+
     }
+
+
 
 
 }
